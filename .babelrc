@@ -1,0 +1,9 @@
+// A setting of presets giving you ability to run the project from terminal and to run es6 code.
+
+{
+    "presets":[
+        [
+            "@babel/preset-env"
+        ]
+    ]
+}
