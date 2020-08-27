@@ -8,6 +8,3 @@ A bookstore website.
 - Redux is being used for handling client's request as it is convenient way to handle 
   client's request and handle errors when processing the request.
 
-  # lines for testBranch
-
-  1. this is for test Branch.
