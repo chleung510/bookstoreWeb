@@ -75,7 +75,7 @@ function App() {
         </div>
         </section>
         <Route path="/product/:id" component={ProductScreen}/>
-            <Route path="/" exact="true" component={HomeScreen}/>
+            <Route path="/" exact={true} component={HomeScreen}/>
     
 {/* <!-------------------Website features--------------------------> */}
 

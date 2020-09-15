@@ -20,7 +20,11 @@ const reducer  = combineReducers({
 
 //for viewing action and states that Redux dispatched from browser
 // Use compose from redux if it does not exist.
-const composeEnhancer = window.__REDUX_DEVTOOLS_RXTENSION_COMPOSE__ || compose; 
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
+//Middleware is some code you can put between the framework receiving a request, 
+// and the framework generating a response. For example, Express or Koa middleware 
+// may add CORS headers, logging, compression, and more. 
+
 // thunk is a Middleware allows us to run async function in redux
 const store = createStore(reducer, initialState, composeEnhancer(applyMiddleware(thunk)));
 

@@ -1,10 +1,10 @@
 # bookstoreWeb
 A bookstore website.
 
-- Converted original codes to React codes.
-- Users can now view details of every book by tapping books on the home page.
-- Data of books are now saved and handled by the backend api instead of hardcoded.
-- React router is being used for faster browsing purpose.
-- Redux is being used for handling client's request as it is convenient way to handle 
-  client's request and handle errors when processing the request.
-
+- Fixed a few typo in codes.
+  - Users can only browse home screen when exact route is entered.
+  - Redux store should now be detected by Redux extension of the browser,
+    and types of actions and changes in states are now viewable.
+- Inventory availability of each product is now from backend.
+  - Buyers can only add amount smaller than or equals to maximum amount of inventory to cart from      product page.
+  - Status of inventory will be displayed as "Out of Stock" if inventory is out. 
