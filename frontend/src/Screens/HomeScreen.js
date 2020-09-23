@@ -21,11 +21,11 @@ function HomeScreen(props){
 
 
     // useEffect lets you perform side effects in function components
-    // Data fetching, setting up a subscription, and manually changing the DOM 
-    // in React components are all examples of side effects.
+    // which access function component(method) of productActions.js 
+    // having access to the store's state and methods(e.g, dispatch, getState, etc)
     useEffect(() => { //for fetching data from server.
 
-       dispatch(listProducts()); // dispatch message(and data)??? in productAction.js.
+       dispatch(listProducts()); // access listProduct component(function), which accesss dispatch(action type).
 
        return () => {
         //
@@ -125,8 +125,8 @@ return(
                             <div className="product-name">
                                 <Link to={'/product/' + product._id}><h3>{product.name}</h3></Link>
                             </div>
-                            <div className="product-price"><h5>{product.price}</h5></div>
-                            <div className="product-rating"><h5>{product.rating}</h5></div>  
+                            <div className="product-price"><h5>${product.price}</h5></div>
+                            <div className="product-rating"><h5>{product.rating} stars</h5></div>  
                         </div> 
                     </div>
                     

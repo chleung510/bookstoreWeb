@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
 import ProductScreen from './Screens/ProductScreen';
 import HomeScreen from './Screens/HomeScreen';
+import CartScreen from './Screens/CartScreen'
 
 
 function App() {
@@ -35,8 +36,8 @@ function App() {
     </div>
     <div className="menu-bar">
         <ul>
-            <li><a href="#"><i className="fa fa-shopping-basket" aria-hidden="true"></i>
-                Cart</a></li>
+             <Link to="/cart"><li><a href="#"><i className="fa fa-shopping-basket" aria-hidden="true"></i>
+                Cart</a></li></Link>
             <li><a href="#">Sign Up</a></li>
             <li><a href="#">Log In</a></li>
         </ul>
@@ -75,7 +76,8 @@ function App() {
         </div>
         </section>
         <Route path="/product/:id" component={ProductScreen}/>
-            <Route path="/" exact={true} component={HomeScreen}/>
+        <Route path="/cart/:id?" component={CartScreen}/> {/* Part follows by "?" is optional */}
+        <Route path="/" exact={true} component={HomeScreen}/>
     
 {/* <!-------------------Website features--------------------------> */}
 

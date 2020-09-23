@@ -1,15 +1,4 @@
 *
-/*
-* Title: style.css
-* Code Version: 1.0
-* Date: 7-1-2020
-* Github repository: https://github.com/chleung510/bookstoreWeb
-* Reference: Easy Tutorials https://www.youtube.com/watch?v=Vdo2fSMfUVM&list=PLjwm_8O3suyPMWITFTSRKQ5vlJJMJyCXV
-* Description: This is the CSS of the bookstore website.
-*              I used Easy Tutorials's videos as a reference to learn desigining a bookstore website.
-*              I do not own any codes and pictures. 
-*              Any Codes and pictures used in designing this website only serve as learning purpose.
-*/
 {
     margin: 0;
     padding: 0;
@@ -17,6 +6,12 @@
 body{
     background-color: #f1f3f4;
     font-family: sans-serif;
+}
+button{
+    font-size: 1.6rem;
+}
+.full-width{
+    width: 100%;
 }
 
 #root{
@@ -517,4 +512,54 @@ body{
 }
 .product-description hr{
     margin-bottom: 50px;
+}
+
+/*------------------------cart------------------*/
+.cart{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    align-items: flex-start;
+}
+.cart-list{
+    padding: 0 0 0 1rem;
+    flex: 3 1 40rem;
+}
+.cart-action{
+    flex: 1 1 20rem;
+    background-color: #f0f0f0;
+    border: .1rem #808080 solid;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+.cart-list-container{
+    padding: 1rem;
+    list-style-type: none;
+}
+.cart-list-container li{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* Creates a space between titles(<li>) and product details(<li>)*/
+    padding-bottom: 1rem;
+    margin-bottom: 1rem; 
+    border-bottom: .1rem #c0c0c0 solid; /*A line that seperates between products*/
+}
+.cart-list-container li img{
+    max-width: 10rem;
+    max-height: 10rem;
+}
+.cart-list-container li:first-child{
+    display: flex;
+    justify-content: space-between;
+}
+.cart-image{
+    flex: 1 1;
+}
+.cart-name{
+    flex: 8 1;
+}
+.cart-price{
+    flex: 1 1;
+    text-align: right;
 }

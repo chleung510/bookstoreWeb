@@ -7,7 +7,6 @@ import { detailsProduct } from '../actions/productActions';
 
 function ProductScreen(props){
 
-
   // A classless hook "useState" updates qty(state) and setQty is the function that updates the state.
   // qty is equivalent to this.state.qty, setQty is equivalent to this.setState  
   const [qty, setQty] = useState(1); // passes default value of 1 to setQty which sets qty to 1.
@@ -27,7 +26,7 @@ function ProductScreen(props){
   // Redirect users to an url???
   //Add the product(props...id) to cart for a num of times???
   const handleAddToCart = () => {
-      props.history.push("/cart/" + props.match.params.id + "?qty" + qty)
+      props.history.push("/cart/" + props.match.params.id + "?qty=" + qty)
   }
 
     return <div>

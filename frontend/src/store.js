@@ -6,16 +6,20 @@
 
 import{ createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk  from 'redux-thunk';
-import { productListReducer, productDetailsReducer } from './reducers/productReducers';
+import Cookie from "js-cookie";
+import { productListReducers, productDetailsReducers } from './reducers/productReducers';
+import { cartReducers } from './reducers/cartReducers';
 
-const initialState = {}; //empty object.
+const cartItems = Cookie.getJSON("cartItems") || []; // Gets cart items from cookie or leave it empty if there is not any item.
+const initialState = { cart: {cartItems} }; 
 
 //The combineReducers helper function turns an object
 // whose values are different reducing functions into 
 // a single reducing function you can pass to createStore.
 const reducer  = combineReducers({
-    productList: productListReducer,
-    productDetails: productDetailsReducer
+    productList: productListReducers,
+    productDetails: productDetailsReducers,
+    cart: cartReducers
 })
 
 //for viewing action and states that Redux dispatched from browser
