@@ -9,8 +9,25 @@ ve-dev
 
 import express from 'express';
 import data from './data';
+import dotenv from 'dotenv';
+import config from './config';
+import mongoose from 'mongoose';
+import userRoute from './routes/userRoute';
+
+dotenv.config(); // config will read.env file, parse the contents, assign it to process.env
+const mongodbUrl = config.MONGODB_URL; // to fetch your mongoDB url
+// For connecting to your mongoDB.
+mongoose.connect(mongodbUrl, {
+    // For removing warning messages.
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+}).catch(error => console.log(error.reason)); // Display error message in console when there is an error.
 
 const app = express(); //construct the server.
+
+// When the route is executed, run userRoute.
+app.use("/api/users", userRoute);
 
 // app handles get request
 // first parm is the directory on server, second is a function that will execute when route is matched.
