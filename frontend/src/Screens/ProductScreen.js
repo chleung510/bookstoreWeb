@@ -84,7 +84,7 @@ function ProductScreen(props){
                         </li>
                         <li>
                             {/* Button will not be shown if stock is smaller than equal 0.*/}
-                            {product.numOfStock > 0 && <button onClick={handleAddToCart} className="button">Add To Cart</button>}   
+                            {product.numOfStock > 0 && <button onClick={handleAddToCart} className="button primary">Add To Cart</button>}   
                         </li>
                     </ul>
                 </div>    

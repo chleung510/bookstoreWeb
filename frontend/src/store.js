@@ -9,9 +9,11 @@ import thunk  from 'redux-thunk';
 import Cookie from "js-cookie";
 import { productListReducers, productDetailsReducers } from './reducers/productReducers';
 import { cartReducers } from './reducers/cartReducers';
+import { userRegisterReducers, userSigninReducers } from './reducers/userReducers';
 
 const cartItems = Cookie.getJSON("cartItems") || []; // Gets cart items from cookie or leave it empty if there is not any item.
-const initialState = { cart: {cartItems} }; 
+const userInfo = Cookie.getJSON("userInfo") || null;
+const initialState = { cart: {cartItems}, userSignin: { userInfo } }; 
 
 //The combineReducers helper function turns an object
 // whose values are different reducing functions into 
@@ -19,7 +21,9 @@ const initialState = { cart: {cartItems} };
 const reducer  = combineReducers({
     productList: productListReducers,
     productDetails: productDetailsReducers,
-    cart: cartReducers
+    cart: cartReducers,
+    userSignin: userSigninReducers,
+    userRegister: userRegisterReducers
 })
 
 //for viewing action and states that Redux dispatched from browser

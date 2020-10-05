@@ -4,12 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import './App.css';
+import SigninScreen from './Screens/SigninScreen';
 import ProductScreen from './Screens/ProductScreen';
 import HomeScreen from './Screens/HomeScreen';
 import CartScreen from './Screens/CartScreen'
+import { useSelector } from 'react-redux';
+import RegisterScreen from './Screens/RegisterScreen';
 
 
 function App() {
+  const userSignin = useSelector(state => state.userSignin);
+  const {userInfo} = userSignin;
+
   const openmenu = () => {
     document.getElementById("side-menu").style.display="block";
     document.getElementById("menu-btn").style.display="none";
@@ -36,9 +42,14 @@ function App() {
     </div>
     <div className="menu-bar">
         <ul>
-             <Link to="/cart"><li><a href="#"><i className="fa fa-shopping-basket" aria-hidden="true"></i>
-                Cart</a></li></Link>
-            <li><a href="#">Sign Up</a></li>
+            <li><Link to="/cart"><i className="fa fa-shopping-basket" aria-hidden="true"></i>
+                Cart</Link></li>
+             <li>
+                 {
+                    userInfo ? <Link to="/profile">{userInfo.name}</Link>:
+                    <Link to="/signin">Sign-In</Link>
+                 }
+             </li>  
             <li><a href="#">Log In</a></li>
         </ul>
     </div>
@@ -75,6 +86,8 @@ function App() {
             </ul>
         </div>
         </section>
+        <Route path="/signin" component={SigninScreen}/>
+        <Route path="/register" component={RegisterScreen}/>
         <Route path="/product/:id" component={ProductScreen}/>
         <Route path="/cart/:id?" component={CartScreen}/> {/* Part follows by "?" is optional */}
         <Route path="/" exact={true} component={HomeScreen}/>
