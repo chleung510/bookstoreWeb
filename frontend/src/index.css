@@ -603,43 +603,7 @@ input{
     border-radius: .5rem;
 }
 
-/*---------------products------------*/
 
-.product-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.product-list{
-    width: 85%;
-}
-
-.content-margined{
-    margin: 1rem;
-}
-
-.table{
-    margin-left: 11.5rem;
-}
-
-@media only screen and (max-width: 980px){
-    .product-list{
-        width: 100%;
-    }
-    .table{
-        margin: 0;
-    }
-}
-
-th{
-    text-align: left;
-
-}
-
-tbody>tr:nth-child(odd){
-    background-color: #f0f0f0;
-}
 
 
 

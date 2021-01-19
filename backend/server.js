@@ -13,7 +13,6 @@ import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
 import userRoute from './routes/userRoute';
-import productRoute from './routes/productRoute';
 import bodyParser from 'body-parser';
 
 dotenv.config(); // config will read.env file, parse the contents, assign it to process.env
@@ -33,24 +32,22 @@ const app = express(); //construct the server.
 app.use(bodyParser.json());
 // When the route is executed, run userRoute.
 app.use("/api/users", userRoute);
-// When the route is executed, run productRoute.
-app.use("/api/products", productRoute);
 
 // app handles get request
 // first parm is the directory on server, second is a function that will execute when route is matched.
 //result in sending the product back.
-// app.get("/api/products", (req, res) => {
-//     res.send(data.products);
-// }) 
+app.get("/api/products", (req, res) => {
+    res.send(data.products);
+}) 
 
-// app.get('/api/products/:id', (req, res) =>{
-//     const productId = req.params.id;
-//     const product = data.products.find(x => x._id === productId);
-//     if (product){ //if product id matches
-//         res.send(product);
-//     }else{
-//         res.status(404).send({ message: 'Product not found!'});
-//     }
-// });
+app.get('/api/products/:id', (req, res) =>{
+    const productId = req.params.id;
+    const product = data.products.find(x => x._id === productId);
+    if (product){ //if product id matches
+        res.send(product);
+    }else{
+        res.status(404).send({ message: 'Product not found!'});
+    }
+});
 // listen request for starting the server
 app.listen(5000, () => { console.log("Server starts at  http://localhost:5000")})
