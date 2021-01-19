@@ -13,7 +13,6 @@ import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
 import userRoute from './routes/userRoute';
-import bodyParser from 'body-parser';
 
 dotenv.config(); // config will read.env file, parse the contents, assign it to process.env
 const mongodbUrl = config.MONGODB_URL; // to fetch your mongoDB url
@@ -26,10 +25,7 @@ mongoose.connect(mongodbUrl, {
 }).catch(error => console.log(error.reason)); // Display error message in console when there is an error.
 
 const app = express(); //construct the server.
-// bodyParser is a bodyParser middleware for node.js.
-// Parse incoming request bodies in a middleware before your handlers, 
-// which is available under the req.body property.
-app.use(bodyParser.json());
+
 // When the route is executed, run userRoute.
 app.use("/api/users", userRoute);
 
