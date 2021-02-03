@@ -67,7 +67,7 @@ function ProductScreen(props){
                           <li>
                               {/*Ternary Operator "?" checks whether product greater than 0.*/ }
                               {/* True : False */}
-                              Status: {product.numOfStock > 0? "In Stock" : "Out Of Stock"}
+                              Status: {product.countInStock > 0? "In Stock" : "Out Of Stock"}
                          </li>
                          <li>
                              {/* pass quantity value that user selects to qty.*/}
@@ -77,14 +77,14 @@ function ProductScreen(props){
                                 {/* 3. Keys method returns enumerable properties of an array like object
                                         which is index of each element in this case. */}
                                 {/* 4. Map method traverses array of indexes creates list of quantity. */}
-                                {[...Array(product.numOfStock).keys()].map(x =>
+                                {[...Array(product.countInStock).keys()].map(x =>
                                     <option key={x + 1} value= {x + 1}>{x + 1}</option>
                                     )}
                                         </select>
                         </li>
                         <li>
                             {/* Button will not be shown if stock is smaller than equal 0.*/}
-                            {product.numOfStock > 0 && <button onClick={handleAddToCart} className="button primary">Add To Cart</button>}   
+                            {product.countInStock > 0 && <button onClick={handleAddToCart} className="button primary">Add To Cart</button>}   
                         </li>
                     </ul>
                 </div>    

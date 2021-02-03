@@ -7,7 +7,7 @@
 import{ createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk  from 'redux-thunk';
 import Cookie from "js-cookie";
-import { productListReducers, productDetailsReducers } from './reducers/productReducers';
+import { productListReducers, productDetailsReducers, productSaveReducers, productDeleteReducers } from './reducers/productReducers';
 import { cartReducers } from './reducers/cartReducers';
 import { userRegisterReducers, userSigninReducers } from './reducers/userReducers';
 
@@ -23,7 +23,9 @@ const reducer  = combineReducers({
     productDetails: productDetailsReducers,
     cart: cartReducers,
     userSignin: userSigninReducers,
-    userRegister: userRegisterReducers
+    userRegister: userRegisterReducers,
+    productSave: productSaveReducers,
+    productDelete: productDeleteReducers
 })
 
 //for viewing action and states that Redux dispatched from browser
