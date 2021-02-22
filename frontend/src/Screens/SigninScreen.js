@@ -10,11 +10,18 @@ function SigninScreen(props){
   const userSignin = useSelector(state => state.userSignin);
   const { loading, userInfo, error } = userSignin;
   const dispatch = useDispatch();
+  // If there is a string in props.location.search, split the string with "=" and 
+  // extract 2nd item in the array which is the shipping page in this case.
+  // If it does not exist, it redirects back to home page.
+  const redirect = props.location.search?props.location.search.split("=")[1]:'/';
 
   useEffect(() => {
+      console.log(props);
+      // If user logged in...
      if (userInfo){
-         // for directing user to home page. 
-         props.history.push("/");
+         // for directing user to home page or shipping page. 
+         // Based on the result in redirect.
+         props.history.push(redirect);
      }
       return () => {
           //
@@ -56,7 +63,13 @@ function SigninScreen(props){
                     New to Bookstore?
                 </li>
                 <li>
-                    <Link to="/register" className="button secondary text-center">Create your Bookstore Account</Link>
+                    {/* If redirect is pointed to homepage, set redirect to register page.*/}
+                    {/* If redirect is not pointed to homepage, redirect to register page, */}
+                    {/* then set url as "register?redirect=redirect". */}
+
+                    {/* The page will jump to shipping page which is the url parsed from */}
+                    {/* props.location.search */}
+                    <Link to={ redirect === "/" ? "register" :"register?redirect=" + redirect } className="button secondary text-center">Create your Bookstore Account</Link>
                 </li>
             </ul>
         </form>

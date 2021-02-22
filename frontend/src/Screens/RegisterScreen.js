@@ -12,11 +12,17 @@ function RegisterScreen(props){
   const userRegister = useSelector(state => state.userRegister);
   const { loading, userInfo, error } = userRegister;
   const dispatch = useDispatch();
+  // If there is a string in props.location.search, split the string with "=" and 
+  // extract 2nd item in the array which is the shipping page in this case.
+  // If it does not exist, it redirects back to home page.
+  const redirect = props.location.search?props.location.search.split("=")[1]:'/';
 
   useEffect(() => {
+      // If user logged in...
      if (userInfo){
-         // for directing user to home page. 
-         props.history.push("/");
+         // for directing user to home page or shipping page. 
+         // Based on the result in redirect.
+         props.history.push(redirect);
      }
       return () => {
           //
@@ -68,7 +74,13 @@ function RegisterScreen(props){
                     <button type="submit" className="button primary">Submit</button>
                 </li>
                 <li>
-                    Already have an account? <Link to="/signin">Sign-in</Link>
+                    {/* If redirect is pointed to homepage, set redirect to signin page.*/}
+                    {/* If redirect is not pointed to homepage, redirect to signin page, */}
+                    {/* then set url as "signin?redirect=redirect". */}
+
+                    {/* The page will jump to shipping page which is the url parsed from */}
+                    {/* props.location.search */}
+                    Already have an account? <Link to={ redirect === "/" ? "signin" :"signin?redirect=" + redirect } className="button secondary text-center">Sign-in</Link>
                 </li>
             </ul>
         </form>

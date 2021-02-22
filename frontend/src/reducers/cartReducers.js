@@ -1,6 +1,6 @@
-import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstants";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_PAYMENT, CART_SAVE_SHIPPING } from "../constants/cartConstants";
 
-function cartReducers(state = {cartItems:[]}, action){
+function cartReducers(state = { cartItems:[], shipping: {}, payment: {} }, action){
     switch(action.type){
         case CART_ADD_ITEM:
             const item = action.payload; //item that user wants to add to cartItem.
@@ -16,6 +16,12 @@ function cartReducers(state = {cartItems:[]}, action){
         case CART_REMOVE_ITEM:
             // Filter function below creates new array with items(action.payload) removed. 
             return { cartItems: state.cartItems.filter(x => x.product !== action.payload) };
+        case CART_SAVE_SHIPPING:
+            // Preserve the original state and add shipping data.
+            return { ...state, shipping: action.payload }
+        case CART_SAVE_PAYMENT:
+            // Preserve the original state and add payment data.
+            return { ...state, payment: action.payload }
         default:
             return state;
     }

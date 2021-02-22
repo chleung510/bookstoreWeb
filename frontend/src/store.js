@@ -13,7 +13,7 @@ import { userRegisterReducers, userSigninReducers } from './reducers/userReducer
 
 const cartItems = Cookie.getJSON("cartItems") || []; // Gets cart items from cookie or leave it empty if there is not any item.
 const userInfo = Cookie.getJSON("userInfo") || null;
-const initialState = { cart: {cartItems}, userSignin: { userInfo } }; 
+const initialState = { cart: {cartItems, shipping: {}, payment: {} }, userSignin: { userInfo } }; 
 
 //The combineReducers helper function turns an object
 // whose values are different reducing functions into 

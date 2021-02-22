@@ -16,7 +16,7 @@ router.get("/", async (req, res) =>{
 // command for getting specific product in product API.
 router.get("/:id", async (req, res) =>{
     const productId = req.params.id; // Get id of specific product.
-    const product = await Product.findById(productId); // for locating specific product.
+    const product = await Product.findOne({_id: productId}); // for locating specific product.
     if (product){ //if product id matches
         res.send(product);
     }else{
