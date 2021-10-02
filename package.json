@@ -4,11 +4,11 @@
   "description": "A bookstore website. Reference: https://www.youtube.com/watch?v=Vdo2fSMfUVM&amp;list=PLjwm_8O3suyPMWITFTSRKQ5vlJJMJyCXV",
   "main": "index.js",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/free-regular-svg-icons": "^5.14.0",
-    "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/react-fontawesome": "^0.1.11",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
@@ -16,17 +16,17 @@
     "font-awesome": "^4.7.0",
     "ini": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.7",
-    "mquery": "^3.2.3",
+    "mongoose": "^5.12.1",
+    "mquery": "^3.2.4",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.11.0",
-    "@babel/node": "^7.10.5",
-    "@babel/preset-env": "^7.11.0",
-    "nodemon": "^2.0.4"
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.13.10",
+    "nodemon": "^2.0.7"
   },
   "scripts": {
     "start": "nodemon --watch backend --exec babel-node backend/server.js"
